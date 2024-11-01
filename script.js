@@ -1,5 +1,6 @@
 let currentPlayer = "X"
 let arr = Array(9).fill(null)
+let nextTurn = document.getElementById("nextturn")
 function checkWinner(){
     if( //Horizontals
         
@@ -30,9 +31,13 @@ function handleClick(ele){
     ele.innerText = currentPlayer
     checkWinner()
     if(currentPlayer=="X"){
+        ele.style.color = "red"
         currentPlayer = "O"
+        nextTurn.innerText = "next turn is of : O"
     }
     else{
+        ele.style.color = "blue"
         currentPlayer = "X"
+         nextTurn.innerText = "next turn is of : X"
     }
 }
