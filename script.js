@@ -2,12 +2,28 @@ let currentPlayer = "X"
 let arr = Array(9).fill(null)
 let nextTurn = document.getElementById("nextturn")
 let restart = document.getElementById("restart")
+let alertBox = document.getElementById("alertBox")
+function closeAlert() {
+    // Close the custom alert box and refresh the page
+    document.getElementById("customAlert").style.display = "none";
+    location.reload();
+}
+
+function showAlert() {
+    // Display the custom alert box
+    
+    const alertBo = document.createElement("h4")
+    alertBo.innerText = currentPlayer + "is Winner !"
+    alertBox.appendChild(alertBo)
+    document.getElementById("customAlert").style.display = "flex";
+}
 
 function rest(){
     const button = document.createElement("button");
     button.id = "secondButton";
     button.innerHTML = "Restart";
     button.onclick = function() {
+        showAlert();
         location.reload();
     };
     // Add the button to the restart div
@@ -29,14 +45,14 @@ function checkWinner(){
         (arr[0]!=null && arr[0]==arr[4] && arr[4]==arr[8])||
         (arr[2]!=null && arr[2]==arr[4] && arr[4]==arr[6])
     ){
-        alert(currentPlayer+"is Winner !")
-        currentPlayer = "Winner"
+        showAlert();
+        //currentPlayer = "Winner"
         return;
     }
     
     if(!arr.some((e)=>e===null)){
         alert("Game Drawn !")
-        currentPlayer = "Drawn"
+        //currentPlayer = "Drawn"
         return;
     }
 }
@@ -47,17 +63,18 @@ function handleClick(ele){
     ele.innerText = currentPlayer
     checkWinner()
     if(currentPlayer=="X"){
+        
         ele.style.color = "red"
         currentPlayer = "O"
         nextTurn.innerText = "next turn is of : O"
     }
-    else if(currentPlayer == "Winner" || currentPlayer == "Drawn" ){
-        rest();
-    }
-    else{
+    // else if(currentPlayer == "Winner" || currentPlayer == "Drawn" ){
+    //     rest();
+    // }
+    else{      
         ele.style.color = "blue"
         currentPlayer = "X"
         nextTurn.innerText = "next turn is of : X"
-    }
+    } 
 
 }

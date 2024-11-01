@@ -1,19 +1,40 @@
-body{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #ffffff;
+    background-color: rgb(58, 63, 120);
+}
+header {
+    background-color: #001d3a;
+    padding: 20px 0;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+    font-size: x-large;
+}
 .row{
     display : flex
 }
 .col{
     height : 100px;
     width : 100px;
-    border : 1px solid rgb(91, 0, 0);
+    border : 1px solid rgb(6, 5, 36);
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 30px;
     cursor: pointer;
+    background-color: #e8d3fa69;
 }
 .bgarea{
     margin-top: 20vh;
@@ -24,5 +45,39 @@ body{
     justify-content: center;
     text-align: center;
 
-    background-color: rgba(255, 255, 255, 0.512);
+    
+}
+
+#customAlert {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Style for the modal content box */
+#alertBox {
+    background-color: #fff;
+    padding: 20px;
+    color:rgb(6, 5, 36);
+    width: 300px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Style for the OK button */
+#okButton {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
 }

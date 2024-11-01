@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header>
+        <nav>
+            <div class="logo">Tic Tac Toe Game</div>
+        </nav>
+    </header>
     <div class = "bgarea">
         <div class = "area">
             <div class="row">
@@ -28,7 +33,13 @@
             <div id="nextturn">
                 <h3></h3>
             </div>
-            <div id="restart"></div>
+            <div id="customAlert">
+                <div id="alertBox">
+                    <!-- <p>Second button clicked!</p> -->
+                     <h4></h4>
+                    <button id="okButton" onclick="closeAlert()">Restart</button>
+                </div>
+            </div>
         </div>
     </div>
     
