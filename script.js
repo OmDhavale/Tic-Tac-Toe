@@ -1,6 +1,20 @@
 let currentPlayer = "X"
 let arr = Array(9).fill(null)
 let nextTurn = document.getElementById("nextturn")
+let restart = document.getElementById("restart")
+
+function rest(){
+    const button = document.createElement("button");
+    button.id = "secondButton";
+    button.innerHTML = "Restart";
+    button.onclick = function() {
+        location.reload();
+    };
+    // Add the button to the restart div
+    restart.appendChild(button);
+    return
+}
+
 function checkWinner(){
     if( //Horizontals
         
@@ -16,11 +30,13 @@ function checkWinner(){
         (arr[2]!=null && arr[2]==arr[4] && arr[4]==arr[6])
     ){
         alert(currentPlayer+"is Winner !")
+        currentPlayer = "Winner"
         return;
     }
     
     if(!arr.some((e)=>e===null)){
         alert("Game Drawn !")
+        currentPlayer = "Drawn"
         return;
     }
 }
@@ -35,9 +51,13 @@ function handleClick(ele){
         currentPlayer = "O"
         nextTurn.innerText = "next turn is of : O"
     }
+    else if(currentPlayer == "Winner" || currentPlayer == "Drawn" ){
+        rest();
+    }
     else{
         ele.style.color = "blue"
         currentPlayer = "X"
-         nextTurn.innerText = "next turn is of : X"
+        nextTurn.innerText = "next turn is of : X"
     }
+
 }
