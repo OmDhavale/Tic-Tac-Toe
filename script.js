@@ -13,7 +13,7 @@ function showAlert() {
     // Display the custom alert box
     
     const alertBo = document.createElement("h4")
-    alertBo.innerText = currentPlayer + "is Winner !"
+    alertBo.innerText = currentPlayer + " is Winner !"
     alertBox.appendChild(alertBo)
     document.getElementById("customAlert").style.display = "flex";
 }
@@ -51,7 +51,8 @@ function checkWinner(){
     }
     
     if(!arr.some((e)=>e===null)){
-        alert("Game Drawn !")
+        currentPlayer = "Noone"
+        showAlert();
         //currentPlayer = "Drawn"
         return;
     }
